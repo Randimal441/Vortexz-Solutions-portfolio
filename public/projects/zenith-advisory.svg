@@ -1,0 +1,43 @@
+<svg width="1200" height="750" viewBox="0 0 1200 750" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="750" fill="#070A0F"/>
+  <g transform="translate(80, 60)">
+    <rect width="1040" height="630" rx="12" fill="#121923" stroke="#1E293B" stroke-width="1.5"/>
+    <rect width="1040" height="48" rx="12" fill="#0D121A"/>
+    <circle cx="28" cy="24" r="6" fill="#EF4444" opacity="0.8"/>
+    <circle cx="48" cy="24" r="6" fill="#F59E0B" opacity="0.8"/>
+    <circle cx="68" cy="24" r="6" fill="#10B981" opacity="0.8"/>
+    <text x="520" y="29" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12" text-anchor="middle">zenithadvisory.com.au • Cross-Border Strategic Advisory</text>
+
+    <!-- Top Navigation -->
+    <text x="60" y="90" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="18" font-weight="700">ZENITH ADVISORY</text>
+    <text x="360" y="90" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="13">Practice Areas</text>
+    <text x="490" y="90" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="13">Cross-Border Insights</text>
+    <text x="660" y="90" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="13">Partners</text>
+    <rect x="850" y="70" width="130" height="32" rx="6" fill="#3B82F6"/>
+    <text x="915" y="91" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="12" font-weight="600" text-anchor="middle">Consultation</text>
+
+    <!-- Hero Section Inside Preview -->
+    <rect x="60" y="130" width="920" height="260" rx="10" fill="#0D121A" stroke="#1E293B"/>
+    <rect x="90" y="160" width="140" height="24" rx="12" fill="#182231" stroke="#3B82F6" stroke-width="0.8"/>
+    <text x="160" y="176" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="11" font-weight="600" text-anchor="middle">MELBOURNE • COLOMBO</text>
+    <text x="90" y="225" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="28" font-weight="700">Navigating Strategic Growth</text>
+    <text x="90" y="260" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="28" font-weight="700">Across Asia-Pacific Markets.</text>
+    <text x="90" y="300" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="14">Institutional expertise for commercial expansion, capital restructuring, and bilateral regulatory compliance.</text>
+
+    <!-- 3 Pillars -->
+    <rect x="60" y="420" width="286" height="170" rx="8" fill="#182231" stroke="#1E293B"/>
+    <text x="84" y="460" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="13" font-weight="600">01 / MERGERS &amp; ACQUISITIONS</text>
+    <text x="84" y="490" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="15" font-weight="600">Bilateral Transactions</text>
+    <text x="84" y="520" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">Structured advisory facilitating market entry and joint ventures.</text>
+
+    <rect x="376" y="420" width="286" height="170" rx="8" fill="#182231" stroke="#1E293B"/>
+    <text x="400" y="460" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="13" font-weight="600">02 / CAPITAL FORMATION</text>
+    <text x="400" y="490" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="15" font-weight="600">Private Debt &amp; Equity</text>
+    <text x="400" y="520" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">Connecting high-growth mid-market ventures with private family offices.</text>
+
+    <rect x="694" y="420" width="286" height="170" rx="8" fill="#182231" stroke="#1E293B"/>
+    <text x="718" y="460" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="13" font-weight="600">03 / REGULATORY GOVERNANCE</text>
+    <text x="718" y="490" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="15" font-weight="600">Compliance Audits</text>
+    <text x="718" y="520" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">Ensuring adherence to cross-jurisdiction regulatory obligations.</text>
+  </g>
+</svg>
