@@ -1,0 +1,45 @@
+<svg width="1200" height="750" viewBox="0 0 1200 750" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="750" fill="#070A0F"/>
+  <g transform="translate(80, 60)">
+    <rect width="1040" height="630" rx="12" fill="#121923" stroke="#1E293B" stroke-width="1.5"/>
+    <rect width="1040" height="48" rx="12" fill="#0D121A"/>
+    <circle cx="28" cy="24" r="6" fill="#EF4444" opacity="0.8"/>
+    <circle cx="48" cy="24" r="6" fill="#F59E0B" opacity="0.8"/>
+    <circle cx="68" cy="24" r="6" fill="#10B981" opacity="0.8"/>
+    <text x="520" y="29" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12" text-anchor="middle">kaelostudio.com • Architecture &amp; Spatial Monograph</text>
+
+    <!-- Editorial Layout -->
+    <text x="50" y="90" fill="#F8FAFC" font-family="Georgia, serif" font-size="20" letter-spacing="2">KAELO STUDIO</text>
+    <text x="350" y="90" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">Residential</text>
+    <text x="460" y="90" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">Civic</text>
+    <text x="530" y="90" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">Publications</text>
+    <text x="640" y="90" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">Philosophy</text>
+
+    <!-- Hero image feature -->
+    <rect x="50" y="125" width="580" height="455" rx="4" fill="#182231" stroke="#1E293B"/>
+    <!-- Minimalist architectural lines -->
+    <line x1="70" y1="150" x2="610" y2="400" stroke="#3B82F6" stroke-opacity="0.3" stroke-width="2"/>
+    <rect x="120" y="220" width="320" height="240" fill="#0D121A" stroke="#1E293B"/>
+    <text x="80" y="540" fill="#F8FAFC" font-family="Georgia, serif" font-size="18">The Pavilion at Freshwater Bay</text>
+    <text x="80" y="560" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">Sydney, New South Wales — Completed 2026</text>
+
+    <!-- Right column with index -->
+    <rect x="650" y="125" width="340" height="455" rx="4" fill="#0D121A" stroke="#1E293B"/>
+    <text x="680" y="165" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="11" font-weight="600" letter-spacing="1">PROJECT INDEX</text>
+
+    <line x1="680" y1="190" x2="960" y2="190" stroke="#1E293B"/>
+    <text x="680" y="220" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="14" font-weight="600">01 / Mirvac Residence</text>
+    <text x="680" y="240" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">Concrete &amp; timber cantilever</text>
+
+    <line x1="680" y1="270" x2="960" y2="270" stroke="#1E293B"/>
+    <text x="680" y="300" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="14" font-weight="600">02 / Tangalle Coastal Villa</text>
+    <text x="680" y="320" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">Tropical modernist compound</text>
+
+    <line x1="680" y1="350" x2="960" y2="350" stroke="#1E293B"/>
+    <text x="680" y="380" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="14" font-weight="600">03 / Fitzroy Loft Reconstruction</text>
+    <text x="680" y="400" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">Adaptive industrial heritage</text>
+
+    <rect x="680" y="490" width="160" height="36" rx="4" fill="#182231" stroke="#3B82F6" stroke-width="0.8"/>
+    <text x="760" y="513" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="12" font-weight="600" text-anchor="middle">View Full Monograph</text>
+  </g>
+</svg>

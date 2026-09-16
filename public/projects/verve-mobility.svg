@@ -1,0 +1,50 @@
+<svg width="1200" height="750" viewBox="0 0 1200 750" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="750" fill="#070A0F"/>
+  <g transform="translate(100, 60)">
+    <!-- Mobile Frame 1 -->
+    <rect x="180" y="20" width="280" height="580" rx="36" fill="#121923" stroke="#1E293B" stroke-width="3"/>
+    <rect x="250" y="32" width="140" height="18" rx="9" fill="#070A0F"/>
+    <!-- Screen 1 -->
+    <rect x="196" y="55" width="248" height="525" rx="20" fill="#0D121A"/>
+    <text x="216" y="90" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">VERVE FLEET APP</text>
+    <text x="216" y="112" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="16" font-weight="700">Pre-Trip Checklist</text>
+
+    <!-- Checklist items -->
+    <rect x="216" y="130" width="208" height="48" rx="8" fill="#182231" stroke="#1E293B"/>
+    <circle cx="236" cy="154" r="8" fill="#10B981"/>
+    <text x="254" y="158" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="12">Engine Oil &amp; Coolant</text>
+
+    <rect x="216" y="190" width="208" height="48" rx="8" fill="#182231" stroke="#1E293B"/>
+    <circle cx="236" cy="214" r="8" fill="#10B981"/>
+    <text x="254" y="218" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="12">Brake Hydraulic Check</text>
+
+    <rect x="216" y="250" width="208" height="48" rx="8" fill="#182231" stroke="#1E293B"/>
+    <circle cx="236" cy="274" r="8" fill="#3B82F6"/>
+    <text x="254" y="278" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="12">Tire Pressure PSI</text>
+
+    <rect x="216" y="310" width="208" height="80" rx="8" fill="#182231" stroke="#3B82F6" stroke-width="0.8"/>
+    <text x="230" y="336" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="11" font-weight="600">PHOTO DAMAGE LOG</text>
+    <text x="230" y="358" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">Tap to capture bodywork</text>
+
+    <rect x="216" y="500" width="208" height="44" rx="22" fill="#3B82F6"/>
+    <text x="320" y="527" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="13" font-weight="600" text-anchor="middle">Submit Checklist</text>
+
+    <!-- Mobile Frame 2 (Shifted slightly) -->
+    <rect x="540" y="60" width="280" height="540" rx="36" fill="#121923" stroke="#1E293B" stroke-width="3"/>
+    <rect x="610" y="72" width="140" height="18" rx="9" fill="#070A0F"/>
+    <!-- Screen 2 -->
+    <rect x="556" y="95" width="248" height="485" rx="20" fill="#0D121A"/>
+    <text x="576" y="130" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">ROUTE TELEMETRY</text>
+    <text x="576" y="152" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="16" font-weight="700">Vehicle #KL-4091</text>
+    <rect x="576" y="170" width="208" height="120" rx="8" fill="#182231"/>
+    <!-- Speedometer mock -->
+    <circle cx="680" cy="225" r="35" stroke="#1E293B" stroke-width="6" fill="none"/>
+    <circle cx="680" cy="225" r="35" stroke="#3B82F6" stroke-width="6" stroke-dasharray="140" stroke-dashoffset="40" fill="none"/>
+    <text x="680" y="230" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="16" font-weight="700" text-anchor="middle">58</text>
+    <text x="680" y="244" fill="#64748B" font-family="system-ui, sans-serif" font-size="9" text-anchor="middle">KM/H</text>
+
+    <rect x="576" y="310" width="208" height="60" rx="8" fill="#182231"/>
+    <text x="590" y="335" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">Distance Logged</text>
+    <text x="590" y="355" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="15" font-weight="700">142.8 km Today</text>
+  </g>
+</svg>

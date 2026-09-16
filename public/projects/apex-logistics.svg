@@ -1,0 +1,97 @@
+<svg width="1200" height="750" viewBox="0 0 1200 750" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="750" fill="#0D121A"/>
+  <!-- Grid pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1E293B" stroke-width="0.5" stroke-opacity="0.6"/>
+    </pattern>
+    <linearGradient id="blueGlow" x1="0" y1="0" x2="1200" y2="750" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3B82F6" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#070A0F" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#grid)"/>
+  <rect width="1200" height="750" fill="url(#blueGlow)"/>
+
+  <!-- Portal Container Window -->
+  <g transform="translate(80, 70)">
+    <!-- Window Bar -->
+    <rect width="1040" height="610" rx="12" fill="#121923" stroke="#1E293B" stroke-width="1.5"/>
+    <rect width="1040" height="48" rx="12" fill="#070A0F"/>
+    <circle cx="28" cy="24" r="6" fill="#EF4444" opacity="0.8"/>
+    <circle cx="48" cy="24" r="6" fill="#F59E0B" opacity="0.8"/>
+    <circle cx="68" cy="24" r="6" fill="#10B981" opacity="0.8"/>
+    <text x="520" y="29" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="13" font-weight="500" text-anchor="middle">Apex Logistics • Fleet Operations &amp; Consignments</text>
+
+    <!-- Sidebar -->
+    <rect x="0" y="48" width="220" height="562" fill="#0D121A" stroke="#1E293B" stroke-width="1"/>
+    <rect x="20" y="76" width="180" height="32" rx="6" fill="#1E293B"/>
+    <rect x="36" y="86" width="12" height="12" rx="2" fill="#3B82F6"/>
+    <text x="60" y="96" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Dispatch Board</text>
+
+    <rect x="20" y="120" width="180" height="28" rx="6" fill="transparent"/>
+    <text x="60" y="139" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">Fleet Vehicles (42)</text>
+
+    <rect x="20" y="156" width="180" height="28" rx="6" fill="transparent"/>
+    <text x="60" y="175" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">Consignments</text>
+
+    <rect x="20" y="192" width="180" height="28" rx="6" fill="transparent"/>
+    <text x="60" y="211" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">Manifest Invoices</text>
+
+    <!-- Main Content Area -->
+    <!-- Metric Cards -->
+    <rect x="250" y="76" width="235" height="96" rx="8" fill="#182231" stroke="#1E293B"/>
+    <text x="272" y="104" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">Active Deliveries</text>
+    <text x="272" y="138" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="28" font-weight="700">128</text>
+    <rect x="420" y="92" width="48" height="20" rx="10" fill="#3B82F6" fill-opacity="0.2"/>
+    <text x="444" y="106" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Live</text>
+
+    <rect x="505" y="76" width="235" height="96" rx="8" fill="#182231" stroke="#1E293B"/>
+    <text x="527" y="104" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">On-Time Rate</text>
+    <text x="527" y="138" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="28" font-weight="700">98.4%</text>
+
+    <rect x="760" y="76" width="245" height="96" rx="8" fill="#182231" stroke="#1E293B"/>
+    <text x="782" y="104" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">Dispatches Today</text>
+    <text x="782" y="138" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="28" font-weight="700">314</text>
+
+    <!-- Data Table / Live Route Monitor -->
+    <rect x="250" y="192" width="755" height="380" rx="8" fill="#0D121A" stroke="#1E293B"/>
+    <!-- Table Header -->
+    <rect x="250" y="192" width="755" height="40" rx="8" fill="#121923"/>
+    <text x="275" y="217" fill="#64748B" font-family="system-ui, sans-serif" font-size="11" font-weight="600">WAYBILL ID</text>
+    <text x="410" y="217" fill="#64748B" font-family="system-ui, sans-serif" font-size="11" font-weight="600">DESTINATION</text>
+    <text x="590" y="217" fill="#64748B" font-family="system-ui, sans-serif" font-size="11" font-weight="600">STATUS</text>
+    <text x="740" y="217" fill="#64748B" font-family="system-ui, sans-serif" font-size="11" font-weight="600">ETA</text>
+    <text x="890" y="217" fill="#64748B" font-family="system-ui, sans-serif" font-size="11" font-weight="600">ACTION</text>
+
+    <!-- Row 1 -->
+    <line x1="250" y1="272" x2="1005" y2="272" stroke="#1E293B"/>
+    <text x="275" y="255" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="13" font-weight="600">APX-8902-LK</text>
+    <text x="410" y="255" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="13">Colombo Regional Hub</text>
+    <rect x="585" y="240" width="85" height="24" rx="12" fill="#3B82F6" fill-opacity="0.2"/>
+    <text x="627" y="256" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="11" font-weight="500" text-anchor="middle">In Transit</text>
+    <text x="740" y="255" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="13">14:30 IST</text>
+    <rect x="880" y="240" width="70" height="24" rx="4" fill="#182231" stroke="#3B82F6" stroke-width="0.8"/>
+    <text x="915" y="256" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="11" text-anchor="middle">Manage</text>
+
+    <!-- Row 2 -->
+    <line x1="250" y1="316" x2="1005" y2="316" stroke="#1E293B"/>
+    <text x="275" y="299" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="13" font-weight="600">APX-8903-AU</text>
+    <text x="410" y="299" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="13">Melbourne Port Terminal</text>
+    <rect x="585" y="284" width="85" height="24" rx="12" fill="#10B981" fill-opacity="0.2"/>
+    <text x="627" y="300" fill="#34D399" font-family="system-ui, sans-serif" font-size="11" font-weight="500" text-anchor="middle">Cleared</text>
+    <text x="740" y="299" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="13">16:15 AEST</text>
+    <rect x="880" y="284" width="70" height="24" rx="4" fill="#182231" stroke="#1E293B" stroke-width="0.8"/>
+    <text x="915" y="300" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11" text-anchor="middle">Details</text>
+
+    <!-- Row 3 -->
+    <line x1="250" y1="360" x2="1005" y2="360" stroke="#1E293B"/>
+    <text x="275" y="343" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="13" font-weight="600">APX-8904-LK</text>
+    <text x="410" y="343" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="13">Kandy Central Depot</text>
+    <rect x="585" y="328" width="85" height="24" rx="12" fill="#3B82F6" fill-opacity="0.2"/>
+    <text x="627" y="344" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="11" font-weight="500" text-anchor="middle">In Transit</text>
+    <text x="740" y="343" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="13">18:00 IST</text>
+    <rect x="880" y="328" width="70" height="24" rx="4" fill="#182231" stroke="#1E293B" stroke-width="0.8"/>
+    <text x="915" y="344" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11" text-anchor="middle">Details</text>
+  </g>
+</svg>

@@ -1,0 +1,13 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" rx="14" fill="#0D121A"/>
+  <rect width="64" height="64" rx="14" stroke="#1E293B" stroke-width="1.5"/>
+  <!-- Central core -->
+  <circle cx="32" cy="32" r="4" fill="#3B82F6"/>
+  <!-- Inner Orbit -->
+  <ellipse cx="32" cy="32" rx="12" ry="7" stroke="#60A5FA" stroke-width="1.5" stroke-dasharray="3 2" transform="rotate(-25 32 32)"/>
+  <!-- Outer Vortex Loop -->
+  <path d="M 18 36 C 18 24, 46 20, 46 32 C 46 44, 22 46, 22 34" stroke="#3B82F6" stroke-width="2" stroke-linecap="round"/>
+  <!-- Satellite node -->
+  <circle cx="46" cy="32" r="2.5" fill="#60A5FA"/>
+  <circle cx="18" cy="36" r="2" fill="#3B82F6"/>
+</svg>
