@@ -1,9 +1,11 @@
 import React from "react";
 import type { Metadata } from "next";
-import { PageHeader } from "@/components/ui/PageHeader";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ProjectsGrid } from "@/components/projects/ProjectsGrid";
 import { CTASection } from "@/components/sections/CTASection";
-import { PROJECTS } from "@/data/projects";
+import { getProjects } from "@/lib/projectsStore";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Projects | Selected Work & Systems",
@@ -12,18 +14,16 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectsPage() {
-  return (
-    <div className="flex flex-col w-full">
-      <PageHeader
-        badge="PORTFOLIO"
-        title="Projects That Turn Ideas Into Digital Products."
-        description="A selection of digital products, enterprise web systems, and consumer experiences engineered for real-world reliability."
-        breadcrumbs={[{ label: "Projects" }]}
-      />
+  const projects = getProjects();
 
-      <section className="py-16 lg:py-24 bg-[#070A0F]" id="projects-grid">
+  return (
+    <div className="flex flex-col w-full bg-[var(--vortex-bg)] text-[var(--vortex-text)] transition-colors">
+      {/* Breadcrumbs Navigation */}
+      <Breadcrumbs items={[{ label: "Projects" }]} />
+
+      <section className="pt-6 pb-16 sm:pt-8 lg:pt-10 lg:pb-24 bg-[var(--vortex-bg)]" id="projects-grid">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ProjectsGrid projects={PROJECTS} />
+          <ProjectsGrid projects={projects} />
         </div>
       </section>
 

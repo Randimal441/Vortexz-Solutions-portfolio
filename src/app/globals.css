@@ -1,23 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
 @import "tailwindcss";
 
-@theme {
-  --color-vortex-bg: #070A0F;
-  --color-vortex-secondary: #0D121A;
-  --color-vortex-card: #121923;
-  --color-vortex-card-hover: #182231;
-  --color-vortex-primary: #3B82F6;
-  --color-vortex-bright: #60A5FA;
-  --color-vortex-text: #F8FAFC;
-  --color-vortex-secondary-text: #94A3B8;
-  --color-vortex-muted: #64748B;
-  --color-vortex-border: #1E293B;
+@custom-variant dark (&:where(.dark, .dark *));
 
-  --font-sans: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+@theme {
+  --color-vortex-bg: var(--vortex-bg);
+  --color-vortex-secondary: var(--vortex-surface);
+  --color-vortex-card: var(--vortex-card);
+  --color-vortex-card-hover: var(--vortex-card-hover);
+  --color-vortex-primary: var(--vortex-primary);
+  --color-vortex-bright: var(--vortex-bright);
+  --color-vortex-cyan: var(--vortex-cyan);
+  --color-vortex-text: var(--vortex-text);
+  --color-vortex-secondary-text: var(--vortex-secondary-text);
+  --color-vortex-muted: var(--vortex-muted);
+  --color-vortex-border: var(--vortex-border);
+
+  --font-sans: 'Plus Jakarta Sans', var(--font-display), var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: 'Plus Jakarta Sans', var(--font-display), var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 :root {
   --background: #070A0F;
   --foreground: #F8FAFC;
+  --vortex-bg: #070A0F;
+  --vortex-surface: #0D121A;
+  --vortex-card: #121923;
+  --vortex-card-hover: #182231;
+  --vortex-border: #1E293B;
+  --vortex-border-subtle: rgba(255, 255, 255, 0.08);
+  --vortex-text: #F8FAFC;
+  --vortex-secondary-text: #94A3B8;
+  --vortex-muted: #64748B;
+  --vortex-primary: #3B82F6;
+  --vortex-bright: #60A5FA;
+  --vortex-cyan: #00D2FF;
+  --glass-bg: rgba(7, 10, 15, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --badge-bg: #121923;
+  --badge-border: #1E293B;
+}
+
+html.light,
+body.light {
+  --background: #F8FAFC;
+  --foreground: #0F172A;
+  --vortex-bg: #F8FAFC;
+  --vortex-surface: #FFFFFF;
+  --vortex-card: #FFFFFF;
+  --vortex-card-hover: #F1F5F9;
+  --vortex-border: #E2E8F0;
+  --vortex-border-subtle: rgba(0, 0, 0, 0.08);
+  --vortex-text: #0F172A;
+  --vortex-secondary-text: #475569;
+  --vortex-muted: #94A3B8;
+  --vortex-primary: #2563EB;
+  --vortex-bright: #3B82F6;
+  --vortex-cyan: #0284C7;
+  --glass-bg: rgba(255, 255, 255, 0.88);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --badge-bg: #F1F5F9;
+  --badge-border: #E2E8F0;
 }
 
 * {
@@ -25,20 +68,28 @@
 }
 
 html {
+  font-family: 'Plus Jakarta Sans', var(--font-display), system-ui, -apple-system, sans-serif;
   color-scheme: dark;
   scroll-behavior: smooth;
-  background-color: #070A0F;
-  color: #F8FAFC;
+  background-color: var(--vortex-bg);
+  color: var(--vortex-text);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+html.light {
+  color-scheme: light;
 }
 
 body {
-  background-color: #070A0F;
-  color: #F8FAFC;
+  font-family: 'Plus Jakarta Sans', var(--font-display), system-ui, -apple-system, sans-serif !important;
+  background-color: var(--vortex-bg);
+  color: var(--vortex-text);
   min-height: 100vh;
   overflow-x: hidden;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 ::selection {
@@ -46,23 +97,70 @@ body {
   color: #ffffff;
 }
 
+/* Subtle Frame.io 1px border cards */
+.frame-card {
+  background-color: var(--vortex-card);
+  border: 1px solid var(--vortex-border);
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.frame-card:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+/* Diagonal Marquee Animations */
+@keyframes marquee-scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll-left 40s linear infinite;
+}
+
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll-right 40s linear infinite;
+}
+
+.animate-marquee-left:hover,
+.animate-marquee-right:hover {
+  animation-play-state: paused;
+}
+
 /* Custom subtle scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #070A0F;
+  background: var(--vortex-bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1E293B;
+  background: var(--vortex-border);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3B82F6;
+  background: var(--vortex-primary);
 }
 
 /* Accessible focus visible ring */

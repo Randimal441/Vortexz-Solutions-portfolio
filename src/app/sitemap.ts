@@ -1,8 +1,9 @@
 import { MetadataRoute } from "next";
-import { PROJECTS } from "@/data/projects";
+import { getProjects } from "@/lib/projectsStore";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://vortexzsolutions.com";
+  const projects = getProjects();
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {
@@ -37,7 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const projectRoutes: MetadataRoute.Sitemap = PROJECTS.map((project) => ({
+  const projectRoutes: MetadataRoute.Sitemap = projects.map((project) => ({
     url: `${baseUrl}/projects/${project.slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly",
