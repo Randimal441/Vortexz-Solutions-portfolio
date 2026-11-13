@@ -3,8 +3,8 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
-import { ProjectItem } from "@/data/projects";
+import { ArrowUpRight, MapPin } from "lucide-react";
+import type { ProjectItem } from "@/lib/projectsStore";
 
 interface ProjectCardProps {
   project: ProjectItem;
@@ -12,34 +12,34 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <article className="group relative flex flex-col rounded-xl bg-[#121923] border border-[#1E293B] hover:border-[#3B82F6]/50 hover:bg-[#182231] transition-all duration-300 overflow-hidden shadow-sm hover:shadow-[0_12px_40px_rgba(0,0,0,0.5)]">
+    <article className="group relative flex flex-col rounded-2xl bg-[var(--vortex-card)] border border-[var(--vortex-border)] hover:border-[#3B82F6]/50 hover:bg-[var(--vortex-card-hover)] transition-all duration-300 overflow-hidden shadow-xs hover:shadow-xl hover:shadow-blue-500/5">
       {/* Project Image Container */}
       <Link
         href={`/projects/${project.slug}`}
-        className="relative block w-full aspect-[16/10] bg-[#0D121A] overflow-hidden border-b border-[#1E293B]"
+        className="relative block w-full aspect-[16/10] bg-[var(--vortex-surface)] overflow-hidden border-b border-[var(--vortex-border)]"
       >
         <Image
           src={project.image}
           alt={`${project.title} Interface Preview`}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+          className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
         />
-        {/* Region / Category Overlay Pill */}
-        <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#070A0F]/85 backdrop-blur-md border border-[#1E293B] text-[11px] font-medium text-[#94A3B8]">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]" />
-          <span>{project.category}</span>
+        {/* Region & Category Overlay */}
+        <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[var(--vortex-bg)]/85 backdrop-blur-md border border-[var(--vortex-border)] text-[10px] font-bold text-[var(--vortex-text)] shadow-xs">
+          <MapPin className="w-3 h-3 text-[#3B82F6]" />
+          <span>{project.clientRegion}</span>
         </div>
 
-        <div className="absolute top-3 right-3 px-2 py-0.5 rounded bg-[#0D121A]/80 border border-[#1E293B] text-[10px] font-mono text-[#64748B]">
-          {project.clientRegion}
+        <div className="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-[#3B82F6]/90 backdrop-blur-md text-[10px] font-bold text-white shadow-xs uppercase tracking-wider">
+          {project.category}
         </div>
       </Link>
 
       {/* Content Area */}
-      <div className="flex-1 flex flex-col justify-between p-6">
+      <div className="flex-1 flex flex-col justify-between p-6 sm:p-7">
         <div>
-          <h3 className="text-lg font-bold text-[#F8FAFC] group-hover:text-white transition-colors mb-2 leading-snug">
+          <h3 className="text-xl font-black text-[var(--vortex-text)] group-hover:text-[#3B82F6] transition-colors mb-2 leading-snug tracking-tight">
             <Link
               href={`/projects/${project.slug}`}
               className="focus-visible:outline-none focus-visible:underline"
@@ -48,7 +48,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             </Link>
           </h3>
 
-          <p className="text-sm text-[#94A3B8] leading-relaxed line-clamp-2 mb-4">
+          <p className="text-xs sm:text-sm text-[var(--vortex-secondary-text)] leading-relaxed line-clamp-2 mb-4">
             {project.description}
           </p>
 
@@ -57,13 +57,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
             {project.technologies.slice(0, 4).map((tech) => (
               <span
                 key={tech}
-                className="px-2 py-0.5 rounded text-[11px] font-mono bg-[#0D121A] text-[#64748B] border border-[#1E293B]"
+                className="px-2 py-0.5 rounded text-[10px] font-mono bg-[var(--vortex-surface)] text-[var(--vortex-muted)] border border-[var(--vortex-border)] font-medium"
               >
                 {tech}
               </span>
             ))}
             {project.technologies.length > 4 && (
-              <span className="px-2 py-0.5 rounded text-[11px] font-mono bg-[#0D121A] text-[#64748B] border border-[#1E293B]">
+              <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[var(--vortex-surface)] text-[var(--vortex-muted)] border border-[var(--vortex-border)]">
                 +{project.technologies.length - 4}
               </span>
             )}
@@ -71,15 +71,15 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         {/* Card Footer Link */}
-        <div className="pt-4 border-t border-[#1E293B]/70 flex items-center justify-between">
+        <div className="pt-4 border-t border-[var(--vortex-border)] flex items-center justify-between">
           <Link
             href={`/projects/${project.slug}`}
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#60A5FA] group-hover:text-[#3B82F6] transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#3B82F6] group-hover:translate-x-1 transition-all"
           >
             <span>View Case Study</span>
-            <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <ArrowUpRight className="w-3.5 h-3.5" />
           </Link>
-          <span className="text-[11px] text-[#64748B] font-mono">
+          <span className="text-[11px] text-[var(--vortex-muted)] font-mono">
             {project.category}
           </span>
         </div>

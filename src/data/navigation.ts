@@ -24,32 +24,51 @@ export const FOOTER_COMPANY = [
   { label: "About Vortexz", href: "/about-us" },
   { label: "Selected Projects", href: "/projects" },
   { label: "Development Process", href: "/#process" },
-  { label: "Technology Stack", href: "/#technologies" },
+  // { label: "Technology Stack", href: "/#technologies" },
   { label: "Contact Us", href: "/contact-us" },
 ];
 
 export const REGIONAL_PRESENCE = {
   sriLanka: {
     country: "Sri Lanka",
-    city: "Colombo",
-    email: "hello@vortexzsolutions.com",
-    phone: "+94 77 000 0000",
-    description: "Serving local businesses, startups, and growing enterprises across Sri Lanka.",
+    city: "Colombo / Kurunegala",
+    email: "vortexzsolution@gmail.com",
+    phone: "+94 71 199 1415",
+    description: "Engineering and client consultation hubs in Colombo and Kurunegala.",
     timeZone: "UTC+5:30 (IST)",
   },
-  australia: {
-    country: "Australia",
-    city: "Sydney & Melbourne",
-    email: "au@vortexzsolutions.com",
-    phone: "+61 2 0000 0000",
-    description: "Partnering with Australian founders, SMEs, and digital businesses for high-efficiency offshore engineering.",
-    timeZone: "UTC+10 / AEST",
+  colombo: {
+    country: "Sri Lanka",
+    city: "Colombo Hub",
+    email: "vortexzsolution@gmail.com",
+    phone: "+94 71 199 1415",
+    description: "Commercial operations and client technical consultations.",
+    timeZone: "UTC+5:30 (IST)",
+  },
+  kurunegala: {
+    country: "Sri Lanka",
+    city: "Kurunegala Hub",
+    email: "vortexzsolution@gmail.com",
+    phone: "+94 71 199 1415",
+    description: "Core software engineering and rapid digital system delivery.",
+    timeZone: "UTC+5:30 (IST)",
   },
 };
 
 export const SOCIAL_LINKS = [
-  { name: "LinkedIn", href: "https://linkedin.com/company/vortexz-solutions", icon: "Linkedin" },
-  { name: "GitHub", href: "https://github.com/vortexz-solutions", icon: "Github" },
-  { name: "Instagram", href: "https://instagram.com/vortexzsolutions", icon: "Instagram" },
-  { name: "Facebook", href: "https://facebook.com/vortexzsolutions", icon: "Facebook" },
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/share/1DuY98ZZVE/?mibextid=wwXIfr",
+    icon: "Facebook",
+  },
+  {
+    name: "LinkedIn",
+    href: "https://linkedin.com/company/vortexz-solutions",
+    icon: "Linkedin",
+  },
+  {
+    name: "TikTok",
+    href: "https://www.tiktok.com/@vortexzsolutions",
+    icon: "TikTok",
+  },
 ];

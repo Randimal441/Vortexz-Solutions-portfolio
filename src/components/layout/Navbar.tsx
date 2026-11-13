@@ -4,9 +4,11 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { MAIN_NAV } from "@/data/navigation";
 import { Button } from "@/components/ui/Button";
+import { VortexzLogo } from "@/components/ui/VortexzLogo";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -15,17 +17,12 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 15);
     };
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  // Close mobile menu on route change
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [pathname]);
 
   // Prevent background scroll when mobile menu is open
   useEffect(() => {
@@ -39,40 +36,42 @@ export function Navbar() {
     };
   }, [isMobileMenuOpen]);
 
+  const handleLinkClick = () => {
+    if (isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
+    }
+  };
+
+  // Hide Navbar completely on /admin routes
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-[#070A0F]/90 backdrop-blur-md border-b border-[#1E293B] shadow-lg shadow-black/20 py-3.5"
-          : "bg-transparent border-b border-transparent py-5"
+          ? "bg-[var(--glass-bg)] backdrop-blur-xl border-b border-[var(--vortex-border)] shadow-sm py-2"
+          : "bg-transparent border-b border-transparent py-2.5 sm:py-3"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Brand Logo Treatment */}
+          {/* Brand Logo with Custom Vortexz Emblem */}
           <Link
             href="/"
-            className="flex items-center gap-3 group focus-visible:ring-2 focus-visible:ring-blue-500 rounded-lg p-1 -m-1"
+            onClick={handleLinkClick}
+            className="flex items-center group focus-visible:ring-2 focus-visible:ring-blue-500 rounded-lg"
             aria-label="Vortexz Solutions Home"
           >
-            {/* Subtle orbital mark */}
-            <div className="relative w-9 h-9 rounded-lg bg-[#0D121A] border border-[#1E293B] group-hover:border-[#3B82F6]/50 flex items-center justify-center transition-colors overflow-hidden shrink-0">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#3B82F6] group-hover:scale-110 transition-transform shadow-[0_0_8px_#3B82F6]" />
-              <div className="absolute inset-1 rounded-full border border-dashed border-[#60A5FA]/30 group-hover:rotate-45 transition-transform duration-700" />
-            </div>
-
-            <div className="flex flex-col">
-              <span className="text-base font-extrabold tracking-wider text-[#F8FAFC] leading-none group-hover:text-white transition-colors">
-                VORTEXZ
-              </span>
-              <span className="text-[10px] font-semibold tracking-widest text-[#60A5FA] uppercase leading-none mt-1">
-                SOLUTIONS
-              </span>
-            </div>
+            <VortexzLogo size="md" />
           </Link>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1 bg-[#0D121A]/60 p-1.5 rounded-full border border-[#1E293B]/70 backdrop-blur-sm" aria-label="Main Navigation">
+          {/* Desktop Navigation Links (Frame.io Pill Style) */}
+          <nav
+            className="hidden md:flex items-center gap-1 bg-[var(--vortex-surface)]/80 p-1.5 rounded-full border border-[var(--vortex-border)] backdrop-blur-md shadow-sm"
+            aria-label="Main Navigation"
+          >
             {MAIN_NAV.map((item) => {
               const isActive =
                 item.href === "/"
@@ -83,17 +82,17 @@ export function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`relative px-4 py-1.5 text-sm font-medium rounded-full transition-all duration-200 ${
+                  className={`relative px-4 py-1.5 text-xs font-semibold tracking-wide rounded-full transition-colors duration-200 ${
                     isActive
-                      ? "text-[#F8FAFC] font-semibold"
-                      : "text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-[#121923]/70"
+                      ? "text-[var(--vortex-text)] font-bold"
+                      : "text-[var(--vortex-secondary-text)] hover:text-[var(--vortex-text)] hover:bg-[var(--vortex-card-hover)]"
                   }`}
                 >
                   {isActive && (
                     <motion.div
                       layoutId="activeNavIndicator"
-                      className="absolute inset-0 bg-[#182231] border border-[#1E293B] rounded-full -z-10 shadow-sm"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      className="absolute inset-0 bg-[var(--vortex-card)] border border-[var(--vortex-border)] rounded-full -z-10 shadow-sm"
+                      transition={{ type: "spring", stiffness: 420, damping: 32 }}
                     />
                   )}
                   {item.label}
@@ -102,25 +101,27 @@ export function Navbar() {
             })}
           </nav>
 
-          {/* Desktop CTA */}
+          {/* Desktop Actions: Theme Toggle + CTA */}
           <div className="hidden md:flex items-center gap-3">
+            <ThemeToggle />
             <Button
               href="/contact-us"
               variant="primary"
               size="sm"
               showArrow
-              className="text-sm font-semibold tracking-wide"
+              className="text-xs font-bold tracking-wider uppercase px-4 py-2"
             >
-              Let's Talk
+              Let&apos;s Talk
             </Button>
           </div>
 
-          {/* Mobile Menu Trigger */}
+          {/* Mobile Right Controls: Theme Toggle + Menu Trigger */}
           <div className="flex items-center gap-2 md:hidden">
+            <ThemeToggle />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               type="button"
-              className="p-2.5 rounded-lg bg-[#0D121A] border border-[#1E293B] text-[#94A3B8] hover:text-[#F8FAFC] hover:border-[#3B82F6]/50 transition-colors focus-visible:ring-2 focus-visible:ring-blue-500"
+              className="p-2 rounded-xl bg-[var(--vortex-surface)] border border-[var(--vortex-border)] text-[var(--vortex-secondary-text)] hover:text-[var(--vortex-text)] transition-colors focus-visible:ring-2 focus-visible:ring-blue-500"
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-navigation"
@@ -144,9 +145,9 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="md:hidden bg-[#070A0F] border-b border-[#1E293B] overflow-hidden"
+            className="md:hidden bg-[var(--vortex-bg)]/98 backdrop-blur-2xl border-b border-[var(--vortex-border)] overflow-hidden"
           >
-            <div className="max-w-7xl mx-auto px-4 py-6 space-y-3">
+            <div className="max-w-7xl mx-auto px-4 py-6 space-y-4">
               <div className="flex flex-col space-y-1">
                 {MAIN_NAV.map((item) => {
                   const isActive =
@@ -158,33 +159,35 @@ export function Navbar() {
                     <Link
                       key={item.href}
                       href={item.href}
-                      className={`flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium transition-colors ${
+                      onClick={handleLinkClick}
+                      className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold transition-colors ${
                         isActive
-                          ? "bg-[#121923] text-[#60A5FA] border border-[#1E293B]"
-                          : "text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-[#0D121A]"
+                          ? "bg-[var(--vortex-card)] text-[#3B82F6] border border-[var(--vortex-border)]"
+                          : "text-[var(--vortex-secondary-text)] hover:text-[var(--vortex-text)] hover:bg-[var(--vortex-surface)]"
                       }`}
                     >
                       <span>{item.label}</span>
                       {isActive && (
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] shadow-[0_0_8px_#3B82F6]" />
                       )}
                     </Link>
                   );
                 })}
               </div>
 
-              <div className="pt-4 border-t border-[#1E293B]/70 flex flex-col gap-3">
+              <div className="pt-4 border-t border-[var(--vortex-border)] flex flex-col gap-3">
                 <Button
                   href="/contact-us"
                   variant="primary"
                   size="md"
                   showArrow
-                  className="w-full justify-center"
+                  onClick={handleLinkClick}
+                  className="w-full justify-center text-sm font-bold tracking-wider uppercase"
                 >
-                  Let's Talk
+                  Let&apos;s Talk
                 </Button>
-                <div className="flex items-center justify-between text-xs text-[#64748B] px-1">
-                  <span>Colombo, LK • Sydney &amp; Melbourne, AU</span>
+                <div className="flex items-center justify-between text-xs text-[var(--vortex-muted)] px-1 pt-1">
+                  <span>Colombo, LK • Melbourne &amp; Sydney, AU</span>
                 </div>
               </div>
             </div>

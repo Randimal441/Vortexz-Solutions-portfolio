@@ -1,11 +1,12 @@
 import React from "react";
 import type { Metadata } from "next";
-import { CheckCircle2, Shield, Target, Zap, Users } from "lucide-react";
-import { PageHeader } from "@/components/ui/PageHeader";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { Button } from "@/components/ui/Button";
 import { RegionalDelivery } from "@/components/sections/RegionalDelivery";
 import { CTASection } from "@/components/sections/CTASection";
-import { Button } from "@/components/ui/Button";
-import { TECHNOLOGIES } from "@/data/technologies";
+import { TechStackMarquee } from "@/components/sections/TechStackMarquee";
+import { EngineeringApproachSection } from "@/components/sections/EngineeringApproachSection";
+import { LightCablesBackground } from "@/components/ui/LightCablesBackground";
 
 export const metadata: Metadata = {
   title: "About Us | Building Digital Solutions With Purpose",
@@ -14,185 +15,95 @@ export const metadata: Metadata = {
 };
 
 export default function AboutUsPage() {
-  const values = [
+  const drivers = [
     {
-      icon: Target,
-      title: "Business-First Architecture",
-      description:
-        "We prioritize the real commercial and operational objectives behind the code. Software must solve a bottleneck, reduce operating friction, or generate revenue.",
+      title: "Quality Development",
+      description: "Strict typing, modular components, automated CI/CD, and performance audits to guarantee zero runtime regression.",
     },
     {
-      icon: Shield,
-      title: "Strict Engineering Standards",
-      description:
-        "We build exclusively with modern type-safe frameworks like Next.js and TypeScript, avoiding bloated templates or brittle spaghetti architectures.",
+      title: "Practical Solutions",
+      description: "Solving concrete operational problems with custom logic rather than over-engineering or rigid SaaS limitations.",
     },
     {
-      icon: Users,
-      title: "Direct Engineering Access",
-      description:
-        "Clients work directly with engineers and technical designers, eliminating communication layers and ensuring high alignment from day one.",
+      title: "Modern Technology",
+      description: "Built with Next.js App Router, TypeScript, and Node.js for sub-100ms response times and distributed edge speed.",
     },
     {
-      icon: Zap,
-      title: "Long-Term Maintainability",
-      description:
-        "Every codebase is built with modular separation of concerns, clean documentation, and standard Git workflows, making future enhancements seamless.",
+      title: "Long-Term Support",
+      description: "Continuous proactive monitoring, automated security patches, and phased architectural scaling as your business grows.",
     },
   ];
 
   return (
-    <div className="flex flex-col w-full">
-      <PageHeader
-        badge="ABOUT VORTEXZ"
-        title="Building Digital Solutions With Purpose."
-        description="Vortexz Solutions is a specialized software and digital solutions company partnering with growing businesses and entrepreneurs in Sri Lanka and Australia."
-        breadcrumbs={[{ label: "About Us" }]}
-      />
+    <div className="flex flex-col w-full bg-[var(--vortex-bg)] text-[var(--vortex-text)] transition-colors select-none">
+      {/* Breadcrumbs Navigation */}
+      <Breadcrumbs items={[{ label: "About Us" }]} />
 
-      {/* WHO WE ARE */}
-      <section className="py-20 lg:py-28 bg-[#070A0F]" id="who-we-are">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            <div className="lg:col-span-6 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#121923] border border-[#1E293B] text-xs font-semibold tracking-wider text-[#60A5FA] uppercase">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]" />
-                WHO WE ARE
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#F8FAFC] tracking-tight leading-tight">
-                A Dedicated Software Solutions Partner.
-              </h2>
-              <p className="text-base text-[#94A3B8] leading-relaxed">
-                Vortexz Solutions was founded to bridge the gap between complex software engineering and practical business needs. Too many companies are caught between fragile low-code templates that break at scale and expensive enterprise consultancies that move slowly.
-              </p>
-              <p className="text-base text-[#94A3B8] leading-relaxed">
-                We combine modern web and mobile technologies with disciplined project execution. Whether building a customer-facing web platform, automating dispatch workflows, or designing an intuitive cross-platform mobile application, our solutions are engineered for real-world resilience.
-              </p>
-              <div className="pt-2">
-                <Button href="/contact-us" variant="primary" size="md" showArrow>
-                  Start a Conversation
-                </Button>
-              </div>
-            </div>
+      {/* TOP SECTION: Animated Light Cables Hero Banner (Matching Video) */}
+      <section className="relative w-full pt-6 pb-6 sm:pt-8 sm:pb-8 lg:pt-10 lg:pb-10 overflow-hidden bg-[var(--vortex-bg)]">
+        {/* Dynamic Glowing Light Cables Animation (Matching Video & Vortexz Theme) */}
+        <LightCablesBackground />
 
-            {/* Visual Callout Box */}
-            <div className="lg:col-span-6">
-              <div className="p-8 sm:p-10 rounded-2xl bg-[#0D121A] border border-[#1E293B] relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-48 h-48 bg-blue-500/10 blur-3xl rounded-full" />
-                <h3 className="text-xl font-bold text-[#F8FAFC] mb-6">
-                  What Drives Our Work:
-                </h3>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3.5">
-                    <CheckCircle2 className="w-5 h-5 text-[#3B82F6] shrink-0 mt-0.5" />
-                    <div>
-                      <h4 className="text-sm font-semibold text-[#F8FAFC]">Quality Development</h4>
-                      <p className="text-xs text-[#94A3B8] mt-0.5">Strict typing, modular components, and performance audits.</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3.5">
-                    <CheckCircle2 className="w-5 h-5 text-[#3B82F6] shrink-0 mt-0.5" />
-                    <div>
-                      <h4 className="text-sm font-semibold text-[#F8FAFC]">Practical Solutions</h4>
-                      <p className="text-xs text-[#94A3B8] mt-0.5">Solving concrete operational problems rather than over-engineering.</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3.5">
-                    <CheckCircle2 className="w-5 h-5 text-[#3B82F6] shrink-0 mt-0.5" />
-                    <div>
-                      <h4 className="text-sm font-semibold text-[#F8FAFC]">Modern Technology</h4>
-                      <p className="text-xs text-[#94A3B8] mt-0.5">Next.js App Router, Tailwind CSS, TypeScript, and Node.js.</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3.5">
-                    <CheckCircle2 className="w-5 h-5 text-[#3B82F6] shrink-0 mt-0.5" />
-                    <div>
-                      <h4 className="text-sm font-semibold text-[#F8FAFC]">Long-Term Support</h4>
-                      <p className="text-xs text-[#94A3B8] mt-0.5">Continuous maintenance, security patches, and phased scaling.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* OUR APPROACH */}
-      <section className="py-20 lg:py-28 bg-[#0D121A] border-t border-[#1E293B]" id="our-approach">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#121923] border border-[#1E293B] text-xs font-semibold tracking-wider text-[#60A5FA] uppercase mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]" />
-              OUR PHILOSOPHY
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#F8FAFC]">
-              How We Approach Engineering
-            </h2>
-            <p className="mt-4 text-base text-[#94A3B8] leading-relaxed">
-              We treat every project as a long-term commercial investment for our clients.
-            </p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Top Badge */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[var(--badge-bg)]/80 backdrop-blur-md border border-[var(--badge-border)] text-xs font-bold tracking-widest text-[#3B82F6] uppercase mb-4 shadow-xs">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] animate-pulse" />
+            WHO WE ARE
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {values.map((val, idx) => {
-              const Icon = val.icon;
-              return (
-                <div
-                  key={idx}
-                  className="p-8 rounded-xl bg-[#121923] border border-[#1E293B] hover:border-[#3B82F6]/40 transition-colors"
-                >
-                  <div className="w-12 h-12 rounded-lg bg-[#0D121A] border border-[#1E293B] flex items-center justify-center text-[#60A5FA] mb-6">
-                    <Icon className="w-6 h-6 text-[#3B82F6]" />
-                  </div>
-                  <h3 className="text-lg font-bold text-[#F8FAFC] mb-2.5">
-                    {val.title}
-                  </h3>
-                  <p className="text-sm text-[#94A3B8] leading-relaxed">
-                    {val.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+          {/* Main Headline */}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-black text-[var(--vortex-text)] tracking-tight leading-[1.12] max-w-4xl mb-4">
+            A Dedicated Software Solutions Partner to get you up and scaling on day one.
+          </h1>
 
-      {/* TECHNOLOGIES SUMMARY */}
-      <section className="py-20 lg:py-28 bg-[#070A0F] border-t border-[#1E293B]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center mb-14">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#F8FAFC]">
-              Engineered With Modern Tools
-            </h2>
-            <p className="mt-3 text-sm text-[#94A3B8]">
-              We work with reliable, production-tested technologies across web, mobile, and backend infrastructures.
-            </p>
-          </div>
+          {/* Secondary Lead Paragraph */}
+          <p className="text-sm sm:text-base md:text-lg text-[var(--vortex-secondary-text)] leading-relaxed max-w-2xl mb-8 font-normal">
+            Vortexz Solutions was founded to bridge the gap between complex software engineering and practical business needs. We combine modern web and mobile architectures with disciplined execution to build resilient digital systems.
+          </p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {TECHNOLOGIES.map((tech) => (
-              <div
-                key={tech.name}
-                className="p-4 rounded-xl bg-[#121923] border border-[#1E293B] text-center"
-              >
-                <span className="text-sm font-bold text-[#F8FAFC] block">
-                  {tech.name}
-                </span>
-                <span className="text-[10px] font-mono text-[#64748B] block mt-1">
-                  {tech.category}
-                </span>
+          {/* 4-Column Drivers Row (Horizontal layout matching Reference Image) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 pt-6 border-t border-[var(--vortex-border)]/60">
+            {drivers.map((driver, idx) => (
+              <div key={idx} className="flex flex-col items-start group">
+                <h4 className="text-base sm:text-lg font-bold text-[var(--vortex-text)] tracking-tight mb-1.5 group-hover:text-[#3B82F6] transition-colors">
+                  {driver.title}
+                </h4>
+                <p className="text-xs sm:text-sm text-[var(--vortex-secondary-text)] leading-relaxed font-normal">
+                  {driver.description}
+                </p>
               </div>
             ))}
           </div>
+
+          {/* CTA Action */}
+          <div className="mt-6 sm:mt-8">
+            <Button
+              href="/contact-us"
+              variant="primary"
+              size="md"
+              showArrow
+              className="font-bold text-xs sm:text-sm shadow-lg shadow-blue-500/20"
+            >
+              Start a Conversation
+            </Button>
+          </div>
         </div>
       </section>
 
-      {/* SRI LANKA + AUSTRALIA SECTION */}
+      {/* SECOND SECTION: Our Philosophy / How We Approach Engineering */}
+      <EngineeringApproachSection />
+
+      {/* Tech Stack Marquee */}
+      <TechStackMarquee />
+
+      {/* Cross-border Delivery */}
       <RegionalDelivery />
 
-      {/* CTA */}
-      <CTASection />
+      {/* CTA Section */}
+      <CTASection
+        title="Looking for a Technology Partner?"
+        description="Let's discuss how we can engineer a custom digital platform or software system tailored to your growth goals."
+      />
     </div>
   );
 }

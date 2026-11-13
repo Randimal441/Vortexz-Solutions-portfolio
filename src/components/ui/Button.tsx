@@ -25,23 +25,23 @@ export function Button({
   ...props
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070A0F] disabled:opacity-50 disabled:pointer-events-none rounded-lg group select-none";
+    "inline-flex items-center justify-center font-bold tracking-wide transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none rounded-xl group select-none cursor-pointer";
 
   const sizeStyles = {
     sm: "text-xs px-3.5 py-1.5 gap-1.5",
-    md: "text-sm px-5 py-2.5 gap-2",
-    lg: "text-base px-6 py-3.5 gap-2.5",
+    md: "text-xs sm:text-sm px-5 py-2.5 gap-2",
+    lg: "text-sm sm:text-base px-7 py-3.5 gap-2.5",
   };
 
   const variantStyles = {
     primary:
-      "bg-[#3B82F6] hover:bg-[#2563EB] text-[#F8FAFC] shadow-sm hover:shadow-[0_0_20px_rgba(59,130,246,0.35)] active:translate-y-[1px]",
+      "bg-[#3B82F6] hover:bg-[#2563EB] text-white shadow-sm hover:shadow-[0_0_24px_rgba(59,130,246,0.4)] active:translate-y-[1px]",
     secondary:
-      "bg-[#182231] hover:bg-[#1E293B] text-[#F8FAFC] border border-[#1E293B] hover:border-[#3B82F6]/40",
+      "bg-[var(--vortex-card)] hover:bg-[var(--vortex-card-hover)] text-[var(--vortex-text)] border border-[var(--vortex-border)] hover:border-[#3B82F6]/50 shadow-xs",
     outline:
-      "bg-transparent hover:bg-[#121923] text-[#F8FAFC] border border-[#1E293B] hover:border-[#60A5FA]/60",
+      "bg-transparent hover:bg-[var(--vortex-surface)] text-[var(--vortex-text)] border border-[var(--vortex-border)] hover:border-[#3B82F6]/60",
     ghost:
-      "bg-transparent hover:bg-[#121923] text-[#94A3B8] hover:text-[#F8FAFC]",
+      "bg-transparent hover:bg-[var(--vortex-card)] text-[var(--vortex-secondary-text)] hover:text-[var(--vortex-text)]",
   };
 
   const combinedStyles = `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`;
@@ -51,7 +51,7 @@ export function Button({
       <span>{children}</span>
       {showArrow && (
         <ArrowRight
-          className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1 text-current shrink-0"
+          className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1 text-current shrink-0"
           aria-hidden="true"
         />
       )}

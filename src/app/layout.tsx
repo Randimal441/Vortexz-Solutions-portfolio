@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { ThemeProvider } from "@/context/ThemeContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -10,8 +11,17 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-display",
+});
+
 export const viewport: Viewport = {
-  themeColor: "#070A0F",
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#070A0F" },
+    { media: "(prefers-color-scheme: light)", color: "#F8FAFC" },
+  ],
   width: "device-width",
   initialScale: 1,
 };
@@ -19,20 +29,21 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://vortexzsolutions.com"),
   title: {
-    default: "Vortexz Solutions | Web & Software Development",
+    default: "Vortexz Solutions | Modern Web & Software Development",
     template: "%s | Vortexz Solutions",
   },
   description:
-    "Vortexz Solutions designs and develops websites, e-commerce platforms, custom software systems and mobile applications for growing businesses in Sri Lanka and Australia.",
+    "Vortexz Solutions designs and develops high-impact digital experiences, scalable web applications, e-commerce stores, and cross-platform mobile apps for forward-thinking businesses in Sri Lanka and Australia.",
   keywords: [
     "Vortexz Solutions",
     "Web Development Sri Lanka",
     "Software Development Australia",
-    "Next.js Development",
+    "Next.js Development Agency",
     "Custom Web Systems",
-    "Mobile App Development Flutter",
-    "E-Commerce Development",
-    "UI/UX Design Colombo Melbourne",
+    "Flutter Mobile App Development",
+    "E-Commerce Architecture",
+    "Frame.io Aesthetic Web Design",
+    "Creative Frontend Agency Colombo Melbourne",
   ],
   authors: [{ name: "Vortexz Solutions" }],
   creator: "Vortexz Solutions",
@@ -53,7 +64,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://vortexzsolutions.com",
     siteName: "Vortexz Solutions",
-    title: "Vortexz Solutions | Web & Software Development",
+    title: "Vortexz Solutions | Modern Web & Software Development",
     description:
       "Digital solutions built for growing businesses. Custom websites, web systems, and mobile applications serving Sri Lanka and Australia.",
     images: [
@@ -61,20 +72,20 @@ export const metadata: Metadata = {
         url: "/og-image.svg",
         width: 1200,
         height: 630,
-        alt: "Vortexz Solutions - Web and Software Development",
+        alt: "Vortexz Solutions - High-Impact Web and Software Engineering",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vortexz Solutions | Web & Software Development",
+    title: "Vortexz Solutions | Modern Web & Software Development",
     description:
       "Digital solutions built for growing businesses in Sri Lanka and Australia.",
     images: ["/og-image.svg"],
   },
   icons: {
-    icon: "/vortexz-mark.svg",
-    apple: "/vortexz-mark.svg",
+    icon: "/logo.png",
+    apple: "/logo.png",
   },
 };
 
@@ -88,7 +99,7 @@ export default function RootLayout({
     "@type": "Organization",
     name: "Vortexz Solutions",
     url: "https://vortexzsolutions.com",
-    logo: "https://vortexzsolutions.com/vortexz-mark.svg",
+    logo: "https://vortexzsolutions.com/logo.png",
     description:
       "Vortexz Solutions designs and develops websites, e-commerce platforms, custom web systems and mobile applications for businesses in Sri Lanka and Australia.",
     address: [
@@ -99,36 +110,62 @@ export default function RootLayout({
       },
       {
         "@type": "PostalAddress",
-        addressLocality: "Sydney",
+        addressLocality: "Melbourne",
+        addressRegion: "VIC",
         addressCountry: "AU",
       },
     ],
     contactPoint: [
       {
         "@type": "ContactPoint",
-        contactType: "customer service",
+        contactType: "customer support",
         email: "hello@vortexzsolutions.com",
         availableLanguage: ["English", "Sinhala"],
       },
     ],
-    sameAs: [
-      "https://linkedin.com/company/vortexz-solutions",
-      "https://github.com/vortexz-solutions",
-    ],
   };
 
   return (
-    <html lang="en" className={`${inter.variable} dark`}>
+    <html lang="en" className={`light ${plusJakarta.variable} ${plusJakarta.className}`} suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var saved = localStorage.getItem('vortexz-theme');
+                  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  var theme = saved || 'light';
+                  if (theme === 'system') {
+                    theme = prefersDark ? 'dark' : 'light';
+                  }
+                  if (theme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                    document.documentElement.classList.remove('light');
+                    document.documentElement.style.colorScheme = 'dark';
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                    document.documentElement.classList.add('light');
+                    document.documentElement.style.colorScheme = 'light';
+                  }
+                } catch(e) {}
+              })();
+            `,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#070A0F] text-[#F8FAFC] antialiased selection:bg-[#3B82F6] selection:text-white">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+      <body className={`${plusJakarta.className} ${plusJakarta.variable} ${inter.variable} antialiased bg-[var(--vortex-bg)] text-[var(--vortex-text)]`}>
+        <ThemeProvider>
+          <div className="flex flex-col min-h-screen">
+            <Navbar />
+            <main className="flex-1 w-full flex flex-col">{children}</main>
+            <Footer />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
